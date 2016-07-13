@@ -17,6 +17,11 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
+    if a <= 0 or b <= 0 or c <= 0:
+      raise TriangleError
+    x, y, z = sorted([a, b, c])
+    if x + y <= z:
+      raise TriangleError
     if a == b & b == c:
       return 'equilateral'
     if a == b & b != c or b == c & c != a or c == a & a != b:
@@ -27,3 +32,4 @@ def triangle(a, b, c):
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
     pass
+
